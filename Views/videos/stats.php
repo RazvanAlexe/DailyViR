@@ -1,0 +1,36 @@
+<?php
+    echo "<div>";
+    echo "<label> Title: ".$video['title']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Uploaded by ".$video['id_user']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Upload date: ".$video['upload_date']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Views: ".$video['views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Description: ".$video['description']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Female views: ".$stats['female_views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Male views: ".$stats['male_views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Today's views: ".$stats['today_views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Others' views: ".$stats['others_views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<label> Binary views: ".$stats['binary_views']."</label>";
+    echo "</div>";
+    echo "<div>";
+    echo "<button>Export CSV</button>";
+    echo "</div>";
+    echo "</div>";
+?>

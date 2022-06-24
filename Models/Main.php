@@ -1,11 +1,12 @@
 <?php
-class User extends Model
+class Main extends Model
 {
-    function userVideos($iduser){
-        $sql = "SELECT * FROM video WHERE id_user = '". $iduser ."'";
+    function homepageVideos(){
+        $sql = "SELECT * FROM video LIMIT 10";
         $req = Database::getBdd()->prepare($sql);
         $req->execute();
         return $req->fetchAll();
     }
+
 }
 ?>

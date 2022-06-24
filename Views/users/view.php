@@ -18,7 +18,7 @@
 
                 <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password" placeholder="Your password is...">
-                <a class="navBar__resetPasswdBtn" href="../Reset Password/reset_passwd.html" target="_self">Change</a><!--Doesn't exist yet-->
+                <a class="navBar__resetPasswdBtn" href="../Reset Password/reset_passwd.html" target="_self">Change</a><br>
 
                 <label for="country">Country:</label><br>
                 <select id="country" name="country">

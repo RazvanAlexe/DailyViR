@@ -1,5 +1,5 @@
 
-        <form action='upload_video.php' method='post' enctype="multipart/form-data">
+        <form action='create.php' method='post' enctype="multipart/form-data">
             <div>
                 <input type='file' name='file1' accept="video/*">
             </div>

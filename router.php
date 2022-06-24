@@ -9,9 +9,27 @@ class Router
 
         if ($url == "/MVC_todo/")
         {
-            $request->controller = "users";
-            $request->action = "login";
-            $request->params = [];
+            if(!isset($_COOKIE['logged']))
+            {
+                $request->controller = "mains";
+                $request->action = "about";
+                $request->params = [];
+            }
+            else 
+            {
+                if ($_COOKIE['logged'] == 0)
+                {
+                    $request->controller = "mains";
+                    $request->action = "about";
+                    $request->params = [];   
+                }
+                else
+                {
+                    $request->controller = "mains";
+                    $request->action = "homepage";
+                    $request->params = [];                       
+                }
+            }
         }
         else
         {
