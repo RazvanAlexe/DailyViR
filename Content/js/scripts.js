@@ -1,3 +1,10 @@
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
  $(document).ready(function (){
     $("#login").on('click', function() {
       var username = $("#username").val();
@@ -30,25 +37,34 @@
 
         if (username == "" || password == "" || email == "" || country == "" || gender == "")
           alert('Please check your inputs');
-        $.ajax(
-          {
-            url:'/MVC_todo/users/signup',
-            method: 'POST',
-            data:{
-              signup: 1,
-              usernamePHP: username,
-              passwordPHP: password,
-              emailPHP: email,
-              countryPHP: country,
-              genderPHP: gender
-            },
-            success: function (response){
-              if(response)
-                window.location.href = "/MVC_todo/";
-            },
-            dataType: 'text'
+        else
+        {
+          if (!validateEmail(email)){
+            alert("Invalid email format");
           }
-        );
+          else
+          {
+            $.ajax(
+              {
+                url:'/MVC_todo/users/signup',
+                method: 'POST',
+                data:{
+                  signup: 1,
+                  usernamePHP: username,
+                  passwordPHP: password,
+                  emailPHP: email,
+                  countryPHP: country,
+                  genderPHP: gender
+                },
+                success: function (response){
+                  if(response)
+                    window.location.href = "/MVC_todo/";
+                },
+                dataType: 'text'
+              }
+            );
+          }
+        }
       });
       $("#export").on('click', function() {
         $.ajax(
