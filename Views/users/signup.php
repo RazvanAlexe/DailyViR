@@ -1,10 +1,10 @@
     <h1>Sign up</h1>
-      <form action="Sign_up.php" method="post">
+      <form>
         <div class="txt_field">
           <input type="text" id="username" placeholder="Username...">
         </div>
         <div class="txt_field">
-            <input type="text" id="email" placeholder="Email...">
+            <input type="email" id="email" placeholder="Email...">
         </div>
         <div class="txt_field">
           <input type="password" id ="password" placeholder="Password...">
@@ -15,5 +15,8 @@
         <div class="txt_field">
             <input type="text" id="gender" placeholder="Gender...">
         </div>
-        <input type="button" value="Signup" id="signup">
+        <input type="button" value="Sign up" id="signup">
       </form>
+      <div class="signup_link">
+          Already have an account? <a href='/MVC_todo/users/login/'>Login</a>
+        </div>

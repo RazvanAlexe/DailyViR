@@ -8,10 +8,10 @@ class usersController extends Controller
             $users = new User();
             $cookie_name = "logged";
             $cookie_value = "1";
-            setcookie($cookie_name, $cookie_value, time() + 5, "/"); // 86400 = 1 day
+            setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
             $cookie_name = "username";
             $cookie_value = $_POST['usernamePHP'];
-            setcookie($cookie_name, $cookie_value, time() + 5, "/"); // 86400 = 1 day
+            setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
         }
 
         $this->render("login");
@@ -19,9 +19,17 @@ class usersController extends Controller
 
     function signup()
     {
-        require(ROOT . 'Models/User.php');
-
-        $users = new User();
+        if(isset($_POST['signup'])){
+            require(ROOT . 'Models/User.php');
+            $users = new User();
+            $cookie_name = "logged";
+            $cookie_value = "1";
+            setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
+            $cookie_name = "username";
+            $cookie_value = $_POST['usernamePHP'];
+            setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
+            $result = $users->addUser($_POST['usernamePHP'],$_POST['genderPHP'],$_POST['emailPHP'],$_POST['passwordPHP'],$_POST['countryPHP'],);
+        }
 
         $this->render("signup");
     }

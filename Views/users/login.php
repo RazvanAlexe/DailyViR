@@ -6,7 +6,7 @@
         <div class="txt_field">
           <input type="password" id ="password" placeholder="Password...">
         </div>
-        <input type="button" id = "login">Login</button>
+        <input type="button"value="Log in" id = "login">
         <div class="signup_link">
           Not a member? <a href='/MVC_todo/users/signup/'>Sign up</a>
         </div>

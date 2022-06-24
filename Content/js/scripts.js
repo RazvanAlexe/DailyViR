@@ -19,7 +19,7 @@
           },
           dataType: 'text'
         }
-      );;
+      );
     });
     $("#signup").on('click', function() {
         var username = $("#username").val();
@@ -32,7 +32,7 @@
           alert('Please check your inputs');
         $.ajax(
           {
-            url:'sign_up.php',
+            url:'/MVC_todo/users/signup',
             method: 'POST',
             data:{
               signup: 1,
@@ -49,6 +49,21 @@
             dataType: 'text'
           }
         );
+      });
+      $("#export").on('click', function() {
+        $.ajax(
+          {
+            url:'/MVC_todo/videos/stats/',
+            method: 'POST',
+            data:{
+              export: 1,
+            }
+          }
+        );
+      });
+      $("#searchSubmit").on('click', function() {
+        var searchText = $("#searchText").val();
+        window.location.href = "/MVC_todo/videos/search/"+searchText;
       });
   });
   const acc = document.getElementsByClassName("accordion");

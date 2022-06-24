@@ -1,4 +1,3 @@
-
 <!doctype html>
 <head>
     <meta charset="utf-8">
@@ -18,8 +17,8 @@
                     {
                 ?>
                 <div role="search" class="navBar__search">
-                    <label for="search"> </label><input type="search" id="search" name="search" placeholder="Search...">
-                    <img src="http://localhost/MVC_todo/Content/image/search.svg" class="navBar__searchIcon" alt="The src doesn't exist">
+                        <input type="search" id="searchText" name="search" placeholder="Search...">
+                        <img src="http://localhost/MVC_todo/Content/image/search.svg" class="navBar__searchIcon" id ="searchSubmit" alt="The src doesn't exist">
                 </div>
 
                 <span class="accordion">
@@ -80,29 +79,29 @@
                 <a href="/MVC_todo/users/studio/"><img src="http://localhost/MVC_todo/Content/image/upload_video.png" class="navBar__uploadIcon " alt="The src doesn't exist"></a>
 
                 <a href="/MVC_todo/videos/trending/" class="navBar__trendingBtn">Trending</a>
+                
                 <?php
                     } 
                 }
                 else
                 {
                 ?>
-                <a href="/MVC_todo/users/login"><button>Login</button></a>
-                <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
+
+                    <a href="/MVC_todo/users/login"><button>Log in</button></a>
+
+                    <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
+
                 <?php
                 }
                 ?>
             </div>
-
         </div>
-
-
         <main>
             <div>
                 <?php
                 echo $content_for_layout;
                 ?>
             </div>
-
         </main>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
