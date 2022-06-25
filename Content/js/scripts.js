@@ -57,7 +57,31 @@ const validateEmail = (email) => {
             favourite: 1,
             id_videoPHP: id_video,
             titlePHP: title
-          }
+          },
+          success: function (response){
+            if(response)
+              window.location.href = "/MVC_todo/videos/view/"+id_video;
+          },
+          dataType: 'text'
+        }
+      );
+    });
+    $("#unfavourite").on('click', function() {
+      var v = document.getElementById('id_video');
+      var id_video = v.getAttribute('class');
+      $.ajax(
+        {
+          method: 'POST',
+          url:'/MVC_todo/videos/view/'+id_video,
+          data:{
+            unfavourite: 1,
+            id_videoPHP: id_video
+          },
+          success: function (response){
+            if(response)
+              window.location.href = "/MVC_todo/videos/view/"+id_video;
+          },
+          dataType: 'text'
         }
       );
     });
@@ -189,7 +213,7 @@ const validateEmail = (email) => {
             },
             success: function (response){
               if(response)
-                window.location.href = "/MVC_todo/users/view";
+                window.location.href = "/MVC_todo/";
             },
             dataType: 'text'
           }

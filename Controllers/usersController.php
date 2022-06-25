@@ -14,10 +14,10 @@ class usersController extends Controller
                 if($users->authenticateUser($username,$password)){
                     $cookie_name = "logged";
                     $cookie_value = "1";
-                    setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
+                    setcookie($cookie_name, $cookie_value, time() + 86400 * 30, "/"); // 86400 = 1 day
                     $cookie_name = "username";
                     $cookie_value = $_POST['usernamePHP'];
-                    setcookie($cookie_name, $cookie_value, time() + 25, "/"); // 86400 = 1 day
+                    setcookie($cookie_name, $cookie_value, time() + 86400 * 30, "/"); // 86400 = 1 day
                 }
 
             }
@@ -37,10 +37,10 @@ class usersController extends Controller
                 {
                     $cookie_name = "logged";
                     $cookie_value = "1";
-                    setcookie($cookie_name, $cookie_value, time() + 120, "/"); // 86400 = 1 day
+                    setcookie($cookie_name, $cookie_value, time() + 86400 * 30, "/"); // 86400 = 1 day
                     $cookie_name = "username";
                     $cookie_value = $_POST['usernamePHP'];
-                    setcookie($cookie_name, $cookie_value, time() + 120, "/"); // 86400 = 1 day
+                    setcookie($cookie_name, $cookie_value, time() + 86400 * 30, "/"); // 86400 = 1 day
                     $result = $users->addUser($_POST['usernamePHP'],$_POST['genderPHP'],$_POST['emailPHP'],$_POST['passwordPHP'],$_POST['countryPHP'],);
                 }
             }
@@ -78,9 +78,8 @@ class usersController extends Controller
         {
             require(ROOT . 'Models/User.php');
             $users = new User();
-            $file = "favourites.csv";
+            $file = $_COOKIE['username'].".csv";
             $txt = fopen($file, "w") or die("Unable to open file!");
-            header('Content-Disposition: attachment; filename="test.txt";');
             header('Content-Description: File Transfer');
             header('Content-Disposition: attachment; filename='.basename($file));
             header('Expires: 0');
@@ -97,6 +96,7 @@ class usersController extends Controller
             readfile($file);
 
         }
+
         $this->render("view");
     }
 

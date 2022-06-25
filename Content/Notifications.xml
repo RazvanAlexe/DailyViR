@@ -1,7 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Notifications>
-	<Notification>
-		<User>DailyViR</User>
-		<Action>Created the website!</Action>
-	</Notification>
-</Notifications>
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>W3Schools Home Page</title>
+    <link>https://www.w3schools.com</link>
+    <description>Free web building tutorials</description>
+    <item>
+      <title>New user</title>
+      <link>/MVC_todo</link>
+      <description>DailyViR joined our community!</description>
+    </item>
+  </channel>
+</rss>

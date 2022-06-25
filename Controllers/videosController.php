@@ -54,6 +54,10 @@ class videosController extends Controller
         require(ROOT . 'Models/Video.php');
 
         $videos = new Video();
+        $d['fav'] = $videos->favorited($_COOKIE['username'],$viewvideo);
+        if(isset($_POST['unfavourite'])){
+            $videos->removeFavourite($_COOKIE['username'],$_POST['id_videoPHP']);
+        }
         if(isset($_POST['favourite'])){
             $videos->addFavourite($_COOKIE['username'],$_POST['id_videoPHP'],$_POST['titlePHP']);
         }
@@ -74,6 +78,15 @@ class videosController extends Controller
         else
         {
             $videos->addView($viewvideo);
+            $result = $videos->getUser($_COOKIE['username']);
+            if($result['gender'] == 'Male')
+                $videos->addMaleView($viewvideo);
+            if($result['gender'] == 'Female')
+                $videos->addFemaleView($viewvideo);
+            if($result['gender'] == 'Binary')
+                $videos->addBinaryView($viewvideo);
+            if($result['gender'] == 'Other')
+                $videos->addOtherView($viewvideo);
             $d['video'] = $videos->getVideoData($viewvideo);
             $d['comments'] = $videos->getComments($viewvideo);
             $this->set($d);

@@ -21,12 +21,52 @@ class Video extends Model
         $req = Database::getBdd()->prepare($sql);
         $req->bindParam(':idvideo',$idvideo);
         $req->execute();
+        $sql = "UPDATE statistcs SET views = views + 1 WHERE id_video = :idvideo";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
+    }
+
+    function addMaleView($idvideo){
+        $sql = "UPDATE statistcs SET male_views = male_views + 1 WHERE id_video = :idvideo";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
+    }
+
+    function addFemaleView($idvideo){
+        $sql = "UPDATE statistcs SET views = views + 1 WHERE id_video = :idvideo";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
+    }
+
+    function addBinaryView($idvideo){
+        $sql = "UPDATE statistcs SET binary_views = binary_views + 1 WHERE id_video = :idvideo";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
+    }
+
+    function addOtherView($idvideo){
+        $sql = "UPDATE statistcs SET others_views = others_views + 1 WHERE id_video = :idvideo";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
     }
 
     function getVideoData($idvideo){
         $sql = "SELECT * FROM video WHERE id_video = :idvideo";
         $req = Database::getBdd()->prepare($sql);
         $req->bindParam(':idvideo',$idvideo);
+        $req->execute();
+        return $req->fetch();
+    }
+
+    function getUser($id_user){
+        $sql = "SELECT * FROM users WHERE username = :id_user";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_user',$id_user);
         $req->execute();
         return $req->fetch();
     }
@@ -56,6 +96,14 @@ class Video extends Model
         return $req->execute();
     }
 
+    function removeFavourite($id_user,$id_video){
+        $sql = "DELETE FROM favourites WHERE id_user = :id_user AND id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_user',$id_user);
+        $req->bindParam(':id_video',$id_video);
+        $req->execute();
+    }
+
     function addVideo($id_user, $id_video, $title, $description, $category){
         $sql = "INSERT INTO video (id_video, comment_count, views, category, upload_date, tags, title, description, id_user) VALUES (:id_video, 0, 0, :category, current_timestamp(),'video', :title, :description, :id_user);";
         $req = Database::getBdd()->prepare($sql);
@@ -79,6 +127,10 @@ class Video extends Model
     }
 
     function deleteVideo($id_video){
+        $sql = "DELETE FROM favourites WHERE id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
+        $req->execute();
         $sql = "DELETE FROM statistcs WHERE id_video = :id_video";
         $req = Database::getBdd()->prepare($sql);
         $req->bindParam(':id_video',$id_video);
@@ -96,6 +148,14 @@ class Video extends Model
         $req->execute();
     }
 
+    function favorited($id_user, $id_video){
+        $sql = "SELECT * FROM favourites WHERE id_video = :id_video AND id_user = :id_user";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
+        $req->bindParam(':id_user',$id_user);
+        $req->execute();
+        return $req->fetch();
+    }
 
     function addComment($id_video, $comment, $id_user){
         $sql = "INSERT INTO comments (id_video, id_user, comment, post_time) VALUES (:id_video, :id_user, :comment, current_timestamp());";

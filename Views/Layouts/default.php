@@ -58,19 +58,17 @@
 
                 <div class="accordion__notifications">
                     <a class="accordion__notificationsTitle">Notifications:</a>
-                    <a>
                         <?php 
                         $xml = simplexml_load_file("http://localhost/MVC_todo/Content/Notifications.xml");
-                        foreach($xml as $notification)
+                        foreach($xml->channel->item as $item)
                         {
                         ?>
                         <div class="accordion__notificationsLeft">
                             <a href="/MVC_todo/users/view/"><img src="http://localhost/MVC_todo/Content/image/image.png" class="navBar__userPicture" alt="The src doesn't exist"></a>
                         </div>
                         <div class="accordion__notificationsRight">
-                            <p class="accordion__notificationsText"><?php echo $notification->User." ".$notification->Action;?></p>
+                            <a href = "<?php echo $item->link?>"><p  class="accordion__notificationsText"><?php echo $item->title.": ".$item->description;?></p></a>
                         </div>
-                    </a>
                     <?php
                         }
                     ?>
@@ -112,6 +110,7 @@
             </div>
         </main>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="/MVC_todo/Content/js/scripts.js" type="text/javascript"></script>
 </html>

@@ -17,9 +17,18 @@
     echo "<div>";
     echo "<a href='/MVC_todo/videos/stats/".$video['id_video']."'><button>Statistics</button></a>";
     echo "</div>";
-    echo "<div>";
-    echo "<button id='favourite'>Add to favourites</button>";
-    echo "</div>";
+    if($fav == false)
+    {
+        echo "<div>";
+        echo "<button id='favourite'>Add to favourites</button>";
+        echo "</div>";
+    }
+    else
+    {
+        echo "<div>";
+        echo "<button id='unfavourite'>Remove from favourites</button>";
+        echo "</div>";
+    }
     if(isset($_COOKIE['logged'])){
         if($_COOKIE['username'] == 'admin'){
             echo "<div>";
