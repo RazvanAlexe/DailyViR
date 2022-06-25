@@ -57,6 +57,10 @@ class videosController extends Controller
         if(isset($_POST['favourite'])){
             $videos->addFavourite($_COOKIE['username'],$_POST['id_videoPHP'],$_POST['titlePHP']);
         }
+        if(isset($_POST['comment']))
+        {
+            $videos->addComment($_POST['id_videoPHP'],$_POST['commentPHP'],$_COOKIE['username']);
+        }
         $videos->addView($viewvideo);
         $d['video'] = $videos->getVideoData($viewvideo);
         $d['comments'] = $videos->getComments($viewvideo);

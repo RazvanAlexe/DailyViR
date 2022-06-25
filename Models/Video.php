@@ -46,6 +46,7 @@ class Video extends Model
         $req->execute();
         return $req->fetchAll();
     }
+
     function addFavourite($id_user,$id_video,$title){
         $sql = "INSERT INTO favourites (id_user, id_video, title) VALUES (:id_user, :id_video, :title)";
         $req = Database::getBdd()->prepare($sql);
@@ -70,12 +71,17 @@ class Video extends Model
         $req->execute();
     }
 
-    function createStats($idvideo){
+    function videoExists($idvideo){
 
     }
 
-    function videoExists($idvideo){
-
+    function addComment($id_video, $comment, $id_user){
+        $sql = "INSERT INTO comments (id_video, id_user, comment, post_time) VALUES (:id_video, :id_user, :comment, current_timestamp());";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_user',$id_user);
+        $req->bindParam(':id_video',$id_video);
+        $req->bindParam(':comment',$comment);
+        $req->execute();
     }
 }
 ?>

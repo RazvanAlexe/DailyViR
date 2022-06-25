@@ -1,6 +1,6 @@
 <?php
     echo "<div>";
-    echo "<label class='".$video['title']."' id='title'>".$video['title']."</label>";
+    echo "<label>".$video['title']."</label>";
     echo "</div>";
     echo "<div>";    
     echo "<iframe src='https://player.vimeo.com/video/".$video['id_video']."' width='1000px' height='500px' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
@@ -32,9 +32,9 @@
     echo "<label> Comments: </label>";
     echo "</div>";
     echo "<div>";
-    echo "<form action='/MVC_todo/videos/view/".$video['id_video']."' method='post'>";
-    echo "<input type='text' id='comment' placeholder='Username...'>";
-    echo "<button type = 'submit'>Post new comment</button>";
+    echo "<form>";
+    echo "<input type='text' id='commentText' placeholder='Post a comment...'>";
+    echo "<button id = 'commentPost'>Post new comment</button>";
     echo "</form>";
     echo "</div>";
     echo "<div>";
@@ -55,4 +55,5 @@
     }
     echo "</div>";
     echo "<p class ='".substr($_SERVER['REQUEST_URI'],22)."' id='id_video'></p>";
+    echo "<p class='".$video['title']."' id='title'></p>";
 ?>

@@ -135,6 +135,22 @@ const validateEmail = (email) => {
           }
         );
       });
+      $("#commentPost").on('click', function() {
+        var comment = $("#commentText").val();
+        var v = document.getElementById('id_video');
+        var id_video = v.getAttribute('class');
+        $.ajax(
+          {
+            url:'/MVC_todo/videos/view/'+id_video,
+            method: 'POST',
+            data:{
+              comment: 1,
+              commentPHP: comment,
+              id_videoPHP: id_video
+            }
+          }
+        );
+      });
       $("#changeEmail").on('click', function() {
         var newEmail = $("#newEmail").val();
         $.ajax(
