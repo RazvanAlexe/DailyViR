@@ -9,6 +9,13 @@ class User extends Model
         return $req->fetchAll();
     }
 
+    function getUsers(){
+        $sql = "SELECT * FROM users";
+        $req = Database::getBdd()->prepare($sql);
+        $req->execute();
+        return $req->fetchAll();
+    }
+
     function addUser($iduser,$gender,$email,$password,$country){
         $sql = "INSERT INTO users (username, gender, email, password, country, fav_cat) VALUES (:iduser, :gender, :email, :password, :country, 0);";
         $req = Database::getBdd()->prepare($sql);
@@ -46,14 +53,7 @@ class User extends Model
     function deleteUser($user){
         $sql = "DELETE FROM users WHERE id_user = :id_user";
         $req = Database::getBdd()->prepare($sql);
-        $req->bindParam(':iduser',$user);
-        $req->execute();
-    }
-
-    function deleteUserVideos($user){
-        $sql = "DELETE FROM videos WHERE id_user = :id_user";
-        $req = Database::getBdd()->prepare($sql);
-        $req->bindParam(':iduser',$user);
+        $req->bindParam(':id_user',$user);
         $req->execute();
     }
 

@@ -23,7 +23,7 @@
     if(isset($_COOKIE['logged'])){
         if($_COOKIE['username'] == 'admin'){
             echo "<div>";
-            echo "<button id='deleteComment'>Delete video</button>";
+            echo "<button id='deleteVideo'>Delete video</button>";
             echo "</div>";      
         }
     }       
@@ -38,22 +38,24 @@
     echo "</form>";
     echo "</div>";
     echo "<div>";
-    foreach($comments as $comment){
+    foreach($comments as $comment)
+    {
         echo "<div>";
         echo "<label>".$comment['id_user']." at ".$comment['post_time']." says:</label>";
         echo "</div>";
         echo "<div>";
         echo "<label>".$comment['comment']."</label>";
         echo "</div>"; 
-        if(isset($_COOKIE['logged'])){
+        if(isset($_COOKIE['logged']))
+        {
             if($_COOKIE['username'] == 'admin'){
                 echo "<div>";
-                echo "<button id='deleteComment'>Delete comment</button>";
+                echo "<button id = '".$comment['id_comment']."' class='deletePost'>Delete comment</button>";
                 echo "</div>";      
             }
-        }       
+        }
     }
     echo "</div>";
-    echo "<p class ='".substr($_SERVER['REQUEST_URI'],22)."' id='id_video'></p>";
-    echo "<p class='".$video['title']."' id='title'></p>";
+    echo "<span class ='".substr($_SERVER['REQUEST_URI'],22)."' id='id_video'></span>";
+    echo "<span class='".$video['title']."' id='title'></span>";
 ?>

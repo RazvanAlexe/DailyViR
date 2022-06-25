@@ -147,7 +147,51 @@ const validateEmail = (email) => {
               comment: 1,
               commentPHP: comment,
               id_videoPHP: id_video
-            }
+            },
+            success: function (response){
+              if(response)
+                window.location.href = "/MVC_todo/videos/view/".concat("",id_video);
+            },
+            dataType: 'text'
+          }
+        );
+      });
+      $(".deletePost").on('click', function() {
+        var v = document.getElementById('id_video');
+        var id_video = v.getAttribute('class');
+        var id_comment = this.getAttribute('id');
+        $.ajax(
+          {
+            url:'/MVC_todo/videos/view/'+id_video,
+            method: 'POST',
+            data:{
+              remove: 1,
+              id_commentPHP: id_comment
+            },
+            success: function (response){
+              if(response)
+                window.location.href = "/MVC_todo/videos/view/".concat("",id_video);
+            },
+            dataType: 'text'
+          }
+        );
+      });
+      $("#deleteVideo").on('click', function() {
+        var v = document.getElementById('id_video');
+        var id_video = v.getAttribute('class');
+        $.ajax(
+          {
+            url:'/MVC_todo/videos/view/'+id_video,
+            method: 'POST',
+            data:{
+              delete: 1,
+              id_videoPHP: id_video
+            },
+            success: function (response){
+              if(response)
+                window.location.href = "/MVC_todo/users/view";
+            },
+            dataType: 'text'
           }
         );
       });

@@ -71,9 +71,31 @@ class Video extends Model
         $req->execute();
     }
 
-    function videoExists($idvideo){
-
+    function removeComment($id_comment){
+        $sql = "DELETE FROM comments WHERE id_comment = :id_comment";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_comment',$id_comment);
+        $req->execute();
     }
+
+    function deleteVideo($id_video){
+        $sql = "DELETE FROM statistcs WHERE id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
+        $req->execute();
+        $sql = "DELETE FROM video WHERE id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
+        $req->execute();
+    }
+
+    function deleteComments($id_video){
+        $sql = "DELETE FROM comments WHERE id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
+        $req->execute();
+    }
+
 
     function addComment($id_video, $comment, $id_user){
         $sql = "INSERT INTO comments (id_video, id_user, comment, post_time) VALUES (:id_video, :id_user, :comment, current_timestamp());";
@@ -81,6 +103,10 @@ class Video extends Model
         $req->bindParam(':id_user',$id_user);
         $req->bindParam(':id_video',$id_video);
         $req->bindParam(':comment',$comment);
+        $req->execute();
+        $sql = "UPDATE video SET comment_count = comment_count + 1 WHERE id_video = :id_video";
+        $req = Database::getBdd()->prepare($sql);
+        $req->bindParam(':id_video',$id_video);
         $req->execute();
     }
 }

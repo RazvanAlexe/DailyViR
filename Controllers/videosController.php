@@ -61,11 +61,24 @@ class videosController extends Controller
         {
             $videos->addComment($_POST['id_videoPHP'],$_POST['commentPHP'],$_COOKIE['username']);
         }
-        $videos->addView($viewvideo);
-        $d['video'] = $videos->getVideoData($viewvideo);
-        $d['comments'] = $videos->getComments($viewvideo);
-        $this->set($d);
-        $this->render("view");
+        if(isset($_POST['remove']))
+        {
+            $videos->removeComment($_POST['id_commentPHP']);
+        }
+        if(isset($_POST['delete']))
+        {   
+            $videos->deleteComments($viewvideo);
+            $videos->deleteVideo($viewvideo);
+            header("Location: /MVC_todo/");
+        }
+        else
+        {
+            $videos->addView($viewvideo);
+            $d['video'] = $videos->getVideoData($viewvideo);
+            $d['comments'] = $videos->getComments($viewvideo);
+            $this->set($d);
+            $this->render("view");
+        }
     }
 }
 ?>
