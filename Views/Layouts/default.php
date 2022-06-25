@@ -81,10 +81,18 @@
                 <a href="/MVC_todo/videos/trending/" class="navBar__trendingBtn">Trending</a>
                 
                 <?php
-                    } 
+                    }
+                    else
+                    {
+                ?>
+                    <a href="/MVC_todo/users/login"><button>Log in</button></a>
+
+                    <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
+                <?php
+                    }
                 }
-                else
-                {
+                    else
+                    {
                 ?>
 
                     <a href="/MVC_todo/users/login"><button>Log in</button></a>
@@ -92,7 +100,7 @@
                     <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
 
                 <?php
-                }
+                    }
                 ?>
             </div>
         </div>

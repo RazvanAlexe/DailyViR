@@ -1,13 +1,15 @@
-
-        <form action='create.php' method='post' enctype="multipart/form-data">
-            <div>
-                <input type='file' name='file1' accept="video/*">
+       <form>
+        <div class="txt_field">
+                <input input type="text" id="url" placeholder="Url...">
             </div>
             <div class="txt_field">
-                <input input type="text" name="title" placeholder="Title...">
+                <input input type="text" id="titleUrl" placeholder="Title...">
             </div>
             <div class="txt_field">
-                <input type="text" name="description" placeholder="Description...">
+                <input type="text" id="descriptionUrl" placeholder="Description...">
             </div>
-            <button type='submit' name='upload-btn'>Upload</button>
+            <div class="txt_field">
+                <input type="text" id="categoryUrl" placeholder="Category...">
+            </div>
+            <input type='button' id='uploadUrl' value="Upload">
         </form>

@@ -28,6 +28,63 @@ const validateEmail = (email) => {
         }
       );
     });
+    $("#logout").on('click', function() {
+      $.ajax(
+        {
+          method: 'POST',
+          url:'/MVC_todo/users/view',
+          data:{
+            logout: 1,
+          },
+          success: function (response){
+            if(response)
+              window.location.href = "/MVC_todo/";
+          },
+          dataType: 'text'
+        }
+      );
+    });
+    $("#favourite").on('click', function() {
+      var v = document.getElementById('id_video');
+      var id_video = v.getAttribute('class');
+      var t = document.getElementById('title');
+      var title = t.getAttribute('class');
+      $.ajax(
+        {
+          method: 'POST',
+          url:'/MVC_todo/videos/view/'+id_video,
+          data:{
+            favourite: 1,
+            id_videoPHP: id_video,
+            titlePHP: title
+          }
+        }
+      );
+    });
+    $("#uploadUrl").on('click', function() {
+      var url = $("#url").val();
+      var titleUrl = $("#titleUrl").val();
+      var descriptionUrl = $("#descriptionUrl").val();
+      var categoryUrl = $("#categoryUrl").val();
+      $.ajax(
+        {
+          url:'/MVC_todo/videos/create',
+          method: 'POST',
+          data:{
+            create: 1,
+            urlPHP: url,
+            titleUrlPHP: titleUrl,
+            descriptionUrlPHP: descriptionUrl,
+            categoryUrlPHP: categoryUrl
+          },
+          success: function (response){
+            if(response)
+              window.location.href = "/MVC_todo/users/studio";
+          },
+          dataType: 'text'
+        }
+      );
+    });
     $("#signup").on('click', function() {
         var username = $("#username").val();
         var password = $("#password").val();
@@ -44,6 +101,7 @@ const validateEmail = (email) => {
           }
           else
           {
+            console.log(username);
             $.ajax(
               {
                 url:'/MVC_todo/users/signup',
@@ -69,7 +127,7 @@ const validateEmail = (email) => {
       $("#export").on('click', function() {
         $.ajax(
           {
-            url:'/MVC_todo/videos/stats/',
+            url:'/MVC_todo/users/view',
             method: 'POST',
             data:{
               export: 1,
@@ -77,8 +135,35 @@ const validateEmail = (email) => {
           }
         );
       });
+      $("#changeEmail").on('click', function() {
+        var newEmail = $("#newEmail").val();
+        $.ajax(
+          {
+            url:'/MVC_todo/users/view',
+            method: 'POST',
+            data:{
+              changeEmail: 1,
+              newEmailPHP: newEmail
+            }
+          }
+        );
+      });
+      $("#changePassword").on('click', function() {
+        var newPassword = $("#newPassword").val();
+        $.ajax(
+          {
+            url:'/MVC_todo/users/view',
+            method: 'POST',
+            data:{
+              changePassword: 1,
+              newPasswordPHP: newPassword
+            }
+          }
+        );
+      });
       $("#searchSubmit").on('click', function() {
         var searchText = $("#searchText").val();
+        searchText = searchText.replace('%20','&')
         window.location.href = "/MVC_todo/videos/search/"+searchText;
       });
   });

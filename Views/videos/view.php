@@ -1,6 +1,6 @@
 <?php
     echo "<div>";
-    echo "<label>".$video['title']."</label>";
+    echo "<label class='".$video['title']."' id='title'>".$video['title']."</label>";
     echo "</div>";
     echo "<div>";    
     echo "<iframe src='https://player.vimeo.com/video/".$video['id_video']."' width='1000px' height='500px' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
@@ -18,6 +18,16 @@
     echo "<a href='/MVC_todo/videos/stats/".$video['id_video']."'><button>Statistics</button></a>";
     echo "</div>";
     echo "<div>";
+    echo "<button id='favourite'>Add to favourites</button>";
+    echo "</div>";
+    if(isset($_COOKIE['logged'])){
+        if($_COOKIE['username'] == 'admin'){
+            echo "<div>";
+            echo "<button id='deleteComment'>Delete video</button>";
+            echo "</div>";      
+        }
+    }       
+    echo "<div>";
     echo "<div>";
     echo "<label> Comments: </label>";
     echo "</div>";
@@ -34,7 +44,15 @@
         echo "</div>";
         echo "<div>";
         echo "<label>".$comment['comment']."</label>";
-        echo "</div>";        
+        echo "</div>"; 
+        if(isset($_COOKIE['logged'])){
+            if($_COOKIE['username'] == 'admin'){
+                echo "<div>";
+                echo "<button id='deleteComment'>Delete comment</button>";
+                echo "</div>";      
+            }
+        }       
     }
     echo "</div>";
+    echo "<p class ='".substr($_SERVER['REQUEST_URI'],22)."' id='id_video'></p>";
 ?>

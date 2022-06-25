@@ -29,10 +29,5 @@
     echo "<div>";
     echo "<label> Binary views: ".$stats['binary_views']."</label>";
     echo "</div>";
-    echo "<div>";
-    echo "<form>";
-    echo "<input type='button' value='Export'id = 'export'>";
-    echo "</form>";
-    echo "</div>";
     echo "</div>";
 ?>
