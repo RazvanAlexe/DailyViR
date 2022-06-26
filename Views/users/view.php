@@ -1,5 +1,5 @@
 
-            <label><?php echo $_COOKIE['username'];?></label><br>
+            <label><?php echo $_SESSION['username'];?></label><br>
             <form>
                 <input type="email" id="newEmail" name="newEmail" placeholder="New email"><br>
                 <input type="button" id="changeEmail" value="Change email">

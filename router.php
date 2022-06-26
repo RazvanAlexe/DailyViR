@@ -9,7 +9,7 @@ class Router
 
         if ($url == "/MVC_todo/")
         {
-            if(!isset($_COOKIE['logged']))
+            if(!isset($_SESSION['logged']))
             {
                 $request->controller = "mains";
                 $request->action = "about";
@@ -17,7 +17,7 @@ class Router
             }
             else 
             {
-                if ($_COOKIE['logged'] == 0)
+                if ($_SESSION['logged'] == 0)
                 {
                     $request->controller = "mains";
                     $request->action = "about";

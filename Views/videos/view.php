@@ -1,9 +1,20 @@
 <?php
+    echo "<div    style='
+    background-color: Black;
+    overflow: hidden;
+    display:inline-block;
+    width: 60vw;
+    height: 45vh;'>";    
+    echo "<iframe src='https://player.vimeo.com/video/".$video['id_video']."' frameborder='0'       style='
+        width: 100%;
+        height: 100%;
+      -webkit-transform:scale(1.0);
+      -moz-transform:scale(0.8);
+      -o-transform:scale(0.6);
+      -ms-transform:scale(0.8);' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+    echo "</div>";
     echo "<div>";
     echo "<label>".$video['title']."</label>";
-    echo "</div>";
-    echo "<div>";    
-    echo "<iframe src='https://player.vimeo.com/video/".$video['id_video']."' width='1000px' height='500px' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
     echo "</div>";
     echo "<div>";
     echo "<label> Uploaded by ".$video['id_user']." on " .$video['upload_date']."</label>";
@@ -29,8 +40,8 @@
         echo "<button id='unfavourite'>Remove from favourites</button>";
         echo "</div>";
     }
-    if(isset($_COOKIE['logged'])){
-        if($_COOKIE['username'] == 'admin'){
+    if(isset($_SESSION['logged'])){
+        if($_SESSION['username'] == 'admin'){
             echo "<div>";
             echo "<button id='deleteVideo'>Delete video</button>";
             echo "</div>";      
@@ -55,9 +66,9 @@
         echo "<div>";
         echo "<label>".$comment['comment']."</label>";
         echo "</div>"; 
-        if(isset($_COOKIE['logged']))
+        if(isset($_SESSION['logged']))
         {
-            if($_COOKIE['username'] == 'admin'){
+            if($_SESSION['username'] == 'admin'){
                 echo "<div>";
                 echo "<button id = '".$comment['id_comment']."' class='deletePost'>Delete comment</button>";
                 echo "</div>";      

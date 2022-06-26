@@ -7,7 +7,7 @@ require(ROOT . 'Config/core.php');
 require(ROOT . 'router.php');
 require(ROOT . 'request.php');
 require(ROOT . 'dispatcher.php');
-
+session_start();
 $dispatch = new Dispatcher();
 $dispatch->dispatch();
 ?>

@@ -11,9 +11,9 @@
                 
                 <a class="navBar__textLogo" href="/MVC_todo/" target="_self">DailyViR</a>
                 <?php
-                if(isset($_COOKIE['logged']))
+                if(isset($_SESSION['logged']))
                 {
-                    if($_COOKIE['logged'] == 1)
+                    if($_SESSION['logged'] == 1)
                     {
                 ?>
                 <div role="search" class="navBar__search">
@@ -43,9 +43,9 @@
 
             <div class="navBar__right">
                 <?php
-                if(isset($_COOKIE['logged']))
+                if(isset($_SESSION['logged']))
                 {
-                    if($_COOKIE['logged'] == 1)
+                    if($_SESSION['logged'] == 1)
                     {
                 ?>
                 <a href="/MVC_todo/users/view/"><img src="http://localhost/MVC_todo/Content/image/image.png" class="navBar__pictureAccount" alt="The src doesn't exist"></a>
@@ -59,15 +59,16 @@
                 <div class="accordion__notifications">
                     <a class="accordion__notificationsTitle">Notifications:</a>
                         <?php 
-                        $xml = simplexml_load_file("http://localhost/MVC_todo/Content/Notifications.xml");
-                        foreach($xml->channel->item as $item)
+                        $xml = simplexml_load_file("Notifications.xml");
+                        $list = $xml->channel->item;
+                        for($i = count($list) - 1; $i >= 0; $i--)
                         {
                         ?>
                         <div class="accordion__notificationsLeft">
                             <a href="/MVC_todo/users/view/"><img src="http://localhost/MVC_todo/Content/image/image.png" class="navBar__userPicture" alt="The src doesn't exist"></a>
                         </div>
                         <div class="accordion__notificationsRight">
-                            <a href = "<?php echo $item->link?>"><p  class="accordion__notificationsText"><?php echo $item->title.": ".$item->description;?></p></a>
+                            <a href = "<?php echo $list[$i]->link?>"><p  class="accordion__notificationsText"><?php echo $list[$i]->title.": ".$list[$i]->description;?></p></a>
                         </div>
                     <?php
                         }

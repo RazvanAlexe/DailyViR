@@ -1,4 +1,4 @@
-
+    <div class="ignore-css">
     <h1>Software Requirements Specification</h1>
     <div>
         <section typeof="sa:AuthorsList">
@@ -86,7 +86,8 @@
                 1.1 Scop
             </h2>
             <p>
-                Aplicatia web descrisa in acest document este DailyViR. Aceasta documentatie v-a acoperi componenta de interfata a aplicatiei precum si componenta functionala a acesteia.
+                Aplicatia web descrisa in acest document este DailyViR. 
+                Aceasta documentatie v-a acoperi componenta de interfata a aplicatiei precum si componenta functionala a acesteia.
             </p>
             <h2 id="1.2">
                 1.2 Conventie de documentatie
@@ -111,7 +112,7 @@
             </h2>
 
         </section>
-        <section id="overall">
+        <section id="2">
             <h1>
                 Overall Description
             </h1>
@@ -240,13 +241,13 @@
 
         </section>
         <section>
-            <h1>
+            <h1 id="6">
                 Other Requirements
             </h1>
             <p>
                 Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
             </p>
-            <h2>
+            <h2 id="6.1">
                 Appendix A: Glossary
             </h2>
             <p>
@@ -254,3 +255,4 @@
             </p>
         </section>
     </div>
+    <div>

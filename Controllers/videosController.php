@@ -3,9 +3,31 @@ class videosController extends Controller
 {
     function create(){
         if(isset($_POST['create'])){
+
             require(ROOT . 'Models/Video.php');
-            $videos = new Video();
-            $videos->addVideo($_COOKIE['username'],$_POST['urlPHP'],$_POST['titleUrlPHP'],$_POST['descriptionUrlPHP'],$_POST['categoryUrlPHP']);
+            $videos = new Video();  
+
+            $xmldoc = new DOMDocument();
+            $xmldoc->load("Notifications.xml");
+            $rss = $xmldoc->firstChild;
+            $channel = $rss->firstElementChild;
+            $newItem = $xmldoc->createElement("item");
+            $channel->appendChild($newItem);
+            $newElem = $xmldoc->createElement("title");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode("New video");
+            $newElem->appendChild($newText);
+            $newElem = $xmldoc->createElement("link");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode("/MVC_todo/videos/view/".$_POST['urlPHP']);
+            $newElem->appendChild($newText);
+            $newElem = $xmldoc->createElement("description");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode($_SESSION['username']." posted a new video!");
+            $newElem->appendChild($newText);
+            $xmldoc->save("Notifications.xml");
+            
+            $videos->addVideo($_SESSION['username'],$_POST['urlPHP'],$_POST['titleUrlPHP'],$_POST['descriptionUrlPHP'],$_POST['categoryUrlPHP']);
         }
 
         $this->render("create");
@@ -54,16 +76,38 @@ class videosController extends Controller
         require(ROOT . 'Models/Video.php');
 
         $videos = new Video();
-        $d['fav'] = $videos->favorited($_COOKIE['username'],$viewvideo);
+        $d['fav'] = $videos->favorited($_SESSION['username'],$viewvideo);
         if(isset($_POST['unfavourite'])){
-            $videos->removeFavourite($_COOKIE['username'],$_POST['id_videoPHP']);
+            $videos->removeFavourite($_SESSION['username'],$_POST['id_videoPHP']);
         }
         if(isset($_POST['favourite'])){
-            $videos->addFavourite($_COOKIE['username'],$_POST['id_videoPHP'],$_POST['titlePHP']);
+            $videos->addFavourite($_SESSION['username'],$_POST['id_videoPHP'],$_POST['titlePHP']);
         }
         if(isset($_POST['comment']))
         {
-            $videos->addComment($_POST['id_videoPHP'],$_POST['commentPHP'],$_COOKIE['username']);
+            
+            $xmldoc = new DOMDocument();
+
+            $xmldoc->load("Notifications.xml");
+            $rss = $xmldoc->firstChild;
+            $channel = $rss->firstElementChild;
+            $newItem = $xmldoc->createElement("item");
+            $channel->appendChild($newItem);
+            $newElem = $xmldoc->createElement("title");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode("New comment");
+            $newElem->appendChild($newText);
+            $newElem = $xmldoc->createElement("link");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode("/MVC_todo/videos/view/".$viewvideo);
+            $newElem->appendChild($newText);
+            $newElem = $xmldoc->createElement("description");
+            $newItem->appendChild($newElem);
+            $newText = $xmldoc->createTextNode($_SESSION['username']." commented on a video!");
+            $newElem->appendChild($newText);
+            $xmldoc->save("Notifications.xml");
+
+            $videos->addComment($_POST['id_videoPHP'],$_POST['commentPHP'],$_SESSION['username']);
         }
         if(isset($_POST['remove']))
         {
@@ -78,7 +122,7 @@ class videosController extends Controller
         else
         {
             $videos->addView($viewvideo);
-            $result = $videos->getUser($_COOKIE['username']);
+            $result = $videos->getUser($_SESSION['username']);
             if($result['gender'] == 'Male')
                 $videos->addMaleView($viewvideo);
             if($result['gender'] == 'Female')
