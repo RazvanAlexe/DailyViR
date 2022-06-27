@@ -20,11 +20,26 @@ label {
     color: #A258B8;
 }
 
+.aboutPage{
+    background-image: linear-gradient(white, #a258b8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+.documents{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60vw;
+    margin-top: 1vh;
+}
 
 input[type=search] {
     font-family: "Tajawal", sans-serif; /* font */
     font-size: 2vh; /* size */
-    width: 100%; /* Full width */
+    width: 20vw; /* Full width */
     outline-color: #A258B8; /* when clicked and while in the search bar, there will be a #A258B8 border */
     padding: 1.7vh; /* Some padding between text and box, same in all four directions: top, bottom, left, right */
     border: 0.16vh solid #A258B8; /* #A258B8 border */
@@ -48,7 +63,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .navBar__left {
-    width: 70%;
+    width: 50%;
     height: 100%;
     float: left;
 }
@@ -68,12 +83,14 @@ input[type="search"]::-webkit-search-cancel-button {
     font-size: 5vh;
     padding: 0.7vh 0 0 0.6vh;
     text-decoration: none; /* text is originally a link. Used to not underline */
+    width: 30%;
+    height: 90%;
 }
 
 .navBar__search {
     height: 90%; /* take 90% of the left's height */
     float: left; /* arrange starting from left, after the last element from left */
-    width: 60%; /* take 60% of the left's width */
+    width: 35%; /* take 60% of the left's width */
     padding-left: 0.9vh;
     border-radius: 1.7vh;
     display: flex; /* flex mode => elements go one after another on one single line */
@@ -82,9 +99,10 @@ input[type="search"]::-webkit-search-cancel-button {
 /* proprieties of the search icon */
 .navBar__searchIcon {
     height: 3.3vh; /* set height */
-    width: 3.3vh; /* set width */
+    width: 10%; /* set width */
     padding: 2.9vh 0.3vh 0 0; /* padding */
     margin-left: -4.1vh; /* to overflow over the search bar*/
+    margin-right: 2vw;
 }
 
 /* proprieties of the menu icon */
@@ -143,7 +161,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* column that floats to the right in the navBar*/
 .navBar__right {
-    width: 30%; /* takes 30% of the navBar's width */
+    width: 50%; /* takes 30% of the navBar's width */
     height: 100%;
     float: right;
 }
@@ -454,7 +472,7 @@ input[type="search"]::-webkit-search-cancel-button {
   form .txt_field{
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin: 30px 0;
+    margin:  0;
   }
   .txt_field input{
     width: 20vw;
@@ -803,7 +821,7 @@ input[type="search"]::-webkit-search-cancel-button {
   cursor: pointer;
   display: inline-flex;
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 16px;
+  font-size: 1vw;
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
@@ -817,7 +835,8 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  width: 10vw;
+  height: 2vh;
 }
 
 .buttonVir:hover,
@@ -862,7 +881,8 @@ input[type="search"]::-webkit-search-cancel-button {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: baseline;
-    width: auto;
+    width: 10vw;
+    height: 2vh;
   }
   
   .deletePost:hover,
@@ -886,6 +906,7 @@ input[type="search"]::-webkit-search-cancel-button {
     display: flex;
     justify-content: center;
     margin-top: 5vh;
+    height: 5%;
 }
 
 .homepageVideoContainer{
@@ -979,12 +1000,16 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .searchvideo-title{
-    font-size: 30px;
+    font-size: 2vw;
+}
+
+.video-title{
+    font-size: 1vw;
 }
 
 .description{
     color: black;
-    font-size: 15px;
+    font-size: 1vw;
 }
 
 .searchVideoElement{
@@ -1012,7 +1037,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .homepageTitle{
     color: white;
-    font-size: 70px;
+    font-size: 3vw;
 }
 
   
@@ -1058,3 +1083,17 @@ input[type="search"]::-webkit-search-cancel-button {
   .box select option {
     padding: 30px;
   }
+
+  .usercontain{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contain{
+    display: flex;
+    flex-direction: row;
+  }
+
+.userText{
+    font-size: 20vw;
+}
