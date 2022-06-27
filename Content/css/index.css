@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap');
 
+
+.main{
+    background-image: linear-gradient(#a258b8, white);
+    width: 100%;
+}
+
 body {
-    /* Sets margin to 0 => body extends in every corner */
     margin: 0;
-    /* Sets all text to font Tajawal */
-    font-family: Tajawal, sans-serif;
+    background-color: white;
+    font-family: "Tajawal", sans-serif;
     height: 100%;
 }
 
 label {
-    /* proprieties for text format for labels */
     font-family: "Tajawal", sans-serif;
     font-weight: 700;
     font-size: 18px;
-    color: #A258B8; /* color of the text */
+    color: #A258B8;
 }
 
-/* INPUT PROPRIETIES */
 
-/* proprieties input of search bar*/
 input[type=search] {
     font-family: "Tajawal", sans-serif; /* font */
     font-size: 2vh; /* size */
@@ -33,9 +35,6 @@ input[type=search] {
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
-/* CLASSES */
-
-/* proprieties for the header */
 .navBar {
     background-image: linear-gradient(#A258B8, white); /* make the header's background a gradient */
     height: 10vh; /* set height */
@@ -44,14 +43,12 @@ input[type=search] {
     flex-wrap: wrap; /* elements break into multiple lines, depending on the space there is */
 }
 
-/* column that floats to the left in the navBar*/
 .navBar__left {
-    width: 70%; /* takes 70% of the navBar's width */
+    width: 70%;
     height: 100%;
     float: left;
 }
 
-/* proprieties for the logo icon */
 .navBar__logo {
     float: left; /* arrange starting from left, after the last element from left */
     height: 3.7vh; /* fixed height */
@@ -59,7 +56,6 @@ input[type=search] {
     padding: 2.5vh 0 0 5vh; /* some padding*/
 }
 
-/* proprieties for the text from the logo */
 .navBar__textLogo {
     float: left; /* arrange starting from left, after the last element from left */
     color: white; /* color of the text */
@@ -70,7 +66,6 @@ input[type=search] {
     text-decoration: none; /* text is originally a link. Used to not underline */
 }
 
-/* proprieties of the search bar */
 .navBar__search {
     height: 90%; /* take 90% of the left's height */
     float: left; /* arrange starting from left, after the last element from left */
@@ -233,9 +228,9 @@ input[type=search] {
 }
 
 .accordion__notificationsLeft {
-    width: 20%; /* of the underVideo */
+    width: 80%; /* of the underVideo */
     display: grid;
-    height: 50%;
+    height: 25%;
     float: left;
 }
 
@@ -485,6 +480,7 @@ input[type=search] {
   .pass:hover{
     text-decoration: underline;
   }
+
   input[type="submit"]{
     width: 100%;
     height: 50px;
@@ -560,9 +556,6 @@ input[type=search] {
     border-radius: 0.8vh;
 }
 
-.navBar__resetPasswdBtn:hover{
-    background-color: #954FA8;
-}
 /* proprieties for picture upload*/
 .background__profilePic {
     height: 40%; /* of background div */
@@ -760,14 +753,174 @@ input[type=search] {
     cursor: pointer;
     font-family: Helvetica, sans-serif;
   }
-  .bar text {
+.bar text {
     color: black;
   }
-  .bar:hover,
-  .bar:focus {
+.bar:hover,
+.bar:focus {
     fill: black;
   }
-  .bar:hover text,
-  .bar:focus text {
+.bar:hover text,
+.bar:focus text {
     fill: red;
   }
+
+#loginForm{
+    background-color:#e9f4fb;
+    width: 100vw;
+  }
+
+.buttonVir {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #a258b8;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.buttonVir:hover,
+.buttonVir:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.buttonVir:hover {
+  transform: translateY(-1px);
+}
+
+.buttonVir:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.deletePost {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: red;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .deletePost:hover,
+  .deletePost:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+  
+  .deletePost:hover {
+    transform: translateY(-1px);
+  }
+  
+  .deletePost:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+
+.homepageVideoContainer{
+    position: absolute;
+    left: 20vw;
+    bottom: 20vh;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap:  wrap;
+    gap: 10px 20px;
+    width: 60%;
+    height: 50%;
+
+}
+.videoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.viewBody{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewButtons{
+
+    display: flex;
+}
+
+.viewComments{
+    background-color: yellow
+}
+
+.viewCommentText{
+    background-color: #2691d9;
+
+}
+
+.commentElement{
+    margin-top: 10px; 
+    display: flex;
+    flex-direction: row;
+}
+
+.viewTitle{
+    display: flex;
+    justify-content: center;
+}
+.commentText{
+
+}
+
+.commentDelete{
+
+}
+
+.viewText{
+
+}

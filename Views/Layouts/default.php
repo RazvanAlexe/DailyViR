@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>Daily ViR</title>
-    <link rel="stylesheet" href="http://localhost/MVC_todo/Content/css/index.css">
+    <link rel="stylesheet" href="/MVC_todo/Content/css/index.css?v=1">
 </head>
     <body>
         <div class="navBar">
@@ -65,9 +65,6 @@
                         {
                         ?>
                         <div class="accordion__notificationsLeft">
-                            <a href="/MVC_todo/users/view/"><img src="http://localhost/MVC_todo/Content/image/image.png" class="navBar__userPicture" alt="The src doesn't exist"></a>
-                        </div>
-                        <div class="accordion__notificationsRight">
                             <a href = "<?php echo $list[$i]->link?>"><p  class="accordion__notificationsText"><?php echo $list[$i]->title.": ".$list[$i]->description;?></p></a>
                         </div>
                     <?php
@@ -84,9 +81,9 @@
                     else
                     {
                 ?>
-                    <a href="/MVC_todo/users/login"><button>Log in</button></a>
+                    <a href="/MVC_todo/users/login"><button class="buttonVir">Log in</button></a>
 
-                    <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
+                    <a href="/MVC_todo/users/signup"><button class="buttonVir">Sign up</button></a>
                 <?php
                     }
                 }
@@ -94,9 +91,9 @@
                     {
                 ?>
 
-                    <a href="/MVC_todo/users/login"><button>Log in</button></a>
+                    <a href="/MVC_todo/users/login"><button class="buttonVir">Log in</button></a>
 
-                    <a href="/MVC_todo/users/signup"><button>Sign up</button></a>
+                    <a href="/MVC_todo/users/signup"><button class="buttonVir">Sign up</button></a>
 
                 <?php
                     }
@@ -104,11 +101,9 @@
             </div>
         </div>
         <main>
-            <div>
                 <?php
                 echo $content_for_layout;
                 ?>
-            </div>
         </main>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

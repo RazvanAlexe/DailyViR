@@ -11,7 +11,7 @@
     echo "</div>";
     }
     echo "<a href='/MVC_todo/videos/create/'>";
-    echo "<button class='edit'>Upload</button>";
+    echo "<button class='buttonVir'>Upload</button>";
     echo "</a>";
     echo "</div>";
 ?>

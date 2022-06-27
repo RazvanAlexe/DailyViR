@@ -1,5 +1,6 @@
-    <h1>Sign up</h1>
-      <form>
+
+      <form class="center">
+      <h1>Sign up</h1>
         <div class="txt_field">
           <input type="text" id="username" placeholder="Username...">
         </div>
@@ -267,8 +268,9 @@
                       <option value="Other">Other</option>
           </select>
         </div>
-        <input type="button" value="Sign up" id="signup">
-      </form>
-      <div class="signup_link">
+        <input class="buttonVir" type="button" value="Sign up" id="signup">
+        <div class="signup_link">
           Already have an account? <a href='/MVC_todo/users/login/'>Login</a>
         </div>
+      </form>
+

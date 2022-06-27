@@ -11,5 +11,5 @@
             <div class="txt_field">
                 <input type="text" id="categoryUrl" placeholder="Category...">
             </div>
-            <input type='button' id='uploadUrl' value="Upload">
+            <input class="buttonVir" type='button' id='uploadUrl' value="Upload">
         </form>

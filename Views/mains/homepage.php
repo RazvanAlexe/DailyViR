@@ -1,8 +1,8 @@
 <?php
-    echo "<div>";
+    echo "<div class='homepageVideoContainer'>";
     foreach($videos as $video)
     {
-    echo "<div>";
+    echo "<div class ='videoContainer'>";
     echo "<a href='/MVC_todo/videos/view/".$video['id_video']."'>";
     echo "<div    style='
     background-color: Black;
@@ -20,9 +20,9 @@
       -ms-transform:scale(0.8);' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
     echo "</div>";
     echo "</a>";
+    echo "<div class='titleContainer'>";
     echo "<label class='video-title'>".$video['title']."</label>";
-    echo "<a>";
-    echo "<label class='description'>".$video['description']."</label>";
+    echo "</div>";
     echo "</div>";
     }
     echo "</div>";
