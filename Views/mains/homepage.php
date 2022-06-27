@@ -1,15 +1,13 @@
 <?php
+    echo "<div class = 'homepageTitleContainer'>";
+    echo "<label class='homepageTitle'>Welcome to DailyViR, ".$_SESSION['username']."</label>";
+    echo "</div>";
     echo "<div class='homepageVideoContainer'>";
     foreach($videos as $video)
     {
     echo "<div class ='videoContainer'>";
-    echo "<a href='/MVC_todo/videos/view/".$video['id_video']."'>";
-    echo "<div    style='
-    background-color: Black;
-    overflow: hidden;
-    display:inline-block;
-    width: 10vw;
-    height: 10vh;'>";
+    echo "<a href='/dailyvir/videos/view/".$video['id_video']."'>";
+    echo "<div class='homepageVideoDiv'>";
     echo "<iframe src='https://player.vimeo.com/video/".$video['id_video']."' frameborder='0'       style='
         width: 100%;
         height: 100%;

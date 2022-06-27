@@ -1,16 +1,16 @@
-
-      <form class="center">
-      <h1>Sign up</h1>
-        <div class="txt_field">
-          <input type="text" id="username" placeholder="Username...">
-        </div>
-        <div class="txt_field">
-            <input type="email" id="email" placeholder="Email...">
-        </div>
-        <div class="txt_field">
-          <input type="password" id ="password" placeholder="Password...">
-        </div>
-        <div class="txt_field">
+<div class="pageContainer">
+  <form class="center" id="sign">
+    <h1>Sign up</h1>
+    <div class="txt_field">
+      <input type="text" id="username" placeholder="Username...">
+    </div>
+    <div class="txt_field">
+      <input type="email" id="email" placeholder="Email...">
+    </div>
+    <div class="txt_field">
+      <input type="password" id ="password" placeholder="Password...">
+    </div>
+    <div class="box">
                 <select id="country" name="country" placeholder="Country...">
                     <option value="Afghanistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -259,18 +259,18 @@
                     <option value="Zambia">Zambia</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
-        </div>
-        <div class="txt_field">
-          <select id="gender" name="gender" placeholder="Gender...">
+      </div>
+      <div class="box">
+        <select id="gender" name="gender" placeholder="Gender...">
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Non-binary">Non-binary</option>
                       <option value="Other">Other</option>
-          </select>
-        </div>
-        <input class="buttonVir" type="button" value="Sign up" id="signup">
-        <div class="signup_link">
-          Already have an account? <a href='/MVC_todo/users/login/'>Login</a>
-        </div>
-      </form>
-
+        </select>
+      </div>
+      <input class="buttonVir" type="button" value="Sign up" id="signup">
+      <div class="signup_link">
+        Already have an account? <a href='/dailyvir/users/login/'>Login</a>
+      </div>
+  </form>
+</div>

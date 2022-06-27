@@ -14,7 +14,7 @@ const validateEmail = (email) => {
       $.ajax(
         {
           method: 'POST',
-          url:'/MVC_todo/users/login',
+          url:'/dailyvir/users/login',
           data:{
             login: 1,
             usernamePHP: username,
@@ -22,7 +22,7 @@ const validateEmail = (email) => {
           },
           success: function (response){
             if(response)
-              window.location.href = "/MVC_todo/";
+              window.location.href = "/dailyvir/";
           },
           dataType: 'text'
         }
@@ -32,13 +32,13 @@ const validateEmail = (email) => {
       $.ajax(
         {
           method: 'POST',
-          url:'/MVC_todo/users/view',
+          url:'/dailyvir/users/view',
           data:{
             logout: 1,
           },
           success: function (response){
             if(response)
-              window.location.href = "/MVC_todo/";
+              window.location.href = "/dailyvir/";
           },
           dataType: 'text'
         }
@@ -52,7 +52,7 @@ const validateEmail = (email) => {
       $.ajax(
         {
           method: 'POST',
-          url:'/MVC_todo/videos/view/'+id_video,
+          url:'/dailyvir/videos/view/'+id_video,
           data:{
             favourite: 1,
             id_videoPHP: id_video,
@@ -60,7 +60,7 @@ const validateEmail = (email) => {
           },
           success: function (response){
             if(response)
-              window.location.href = "/MVC_todo/videos/view/"+id_video;
+              window.location.href = "/dailyvir/videos/view/"+id_video;
           },
           dataType: 'text'
         }
@@ -72,14 +72,14 @@ const validateEmail = (email) => {
       $.ajax(
         {
           method: 'POST',
-          url:'/MVC_todo/videos/view/'+id_video,
+          url:'/dailyvir/videos/view/'+id_video,
           data:{
             unfavourite: 1,
             id_videoPHP: id_video
           },
           success: function (response){
             if(response)
-              window.location.href = "/MVC_todo/videos/view/"+id_video;
+              window.location.href = "/dailyvir/videos/view/"+id_video;
           },
           dataType: 'text'
         }
@@ -92,7 +92,7 @@ const validateEmail = (email) => {
       var categoryUrl = $("#categoryUrl").val();
       $.ajax(
         {
-          url:'/MVC_todo/videos/create',
+          url:'/dailyvir/videos/create',
           method: 'POST',
           data:{
             create: 1,
@@ -103,7 +103,7 @@ const validateEmail = (email) => {
           },
           success: function (response){
             if(response)
-              window.location.href = "/MVC_todo/users/studio";
+              window.location.href = "/dailyvir/users/studio";
           },
           dataType: 'text'
         }
@@ -128,7 +128,7 @@ const validateEmail = (email) => {
             console.log(username);
             $.ajax(
               {
-                url:'/MVC_todo/users/signup',
+                url:'/dailyvir/users/signup',
                 method: 'POST',
                 data:{
                   signup: 1,
@@ -140,7 +140,7 @@ const validateEmail = (email) => {
                 },
                 success: function (response){
                   if(response)
-                    window.location.href = "/MVC_todo/";
+                    window.location.href = "/dailyvir/";
                 },
                 dataType: 'text'
               }
@@ -151,7 +151,7 @@ const validateEmail = (email) => {
       $("#export").on('click', function() {
         $.ajax(
           {
-            url:'/MVC_todo/users/view',
+            url:'/dailyvir/users/view',
             method: 'POST',
             data:{
               export: 1,
@@ -165,7 +165,7 @@ const validateEmail = (email) => {
         var id_video = v.getAttribute('class');
         $.ajax(
           {
-            url:'/MVC_todo/videos/view/'+id_video,
+            url:'/dailyvir/videos/view/'+id_video,
             method: 'POST',
             data:{
               comment: 1,
@@ -174,7 +174,7 @@ const validateEmail = (email) => {
             },
             success: function (response){
               if(response)
-                window.location.href = "/MVC_todo/videos/view/".concat("",id_video);
+                window.location.href = "/dailyvir/videos/view/".concat("",id_video);
             },
             dataType: 'text'
           }
@@ -186,7 +186,7 @@ const validateEmail = (email) => {
         var id_comment = this.getAttribute('id');
         $.ajax(
           {
-            url:'/MVC_todo/videos/view/'+id_video,
+            url:'/dailyvir/videos/view/'+id_video,
             method: 'POST',
             data:{
               remove: 1,
@@ -194,7 +194,7 @@ const validateEmail = (email) => {
             },
             success: function (response){
               if(response)
-                window.location.href = "/MVC_todo/videos/view/".concat("",id_video);
+                window.location.href = "/dailyvir/videos/view/".concat("",id_video);
             },
             dataType: 'text'
           }
@@ -205,7 +205,7 @@ const validateEmail = (email) => {
         var id_video = v.getAttribute('class');
         $.ajax(
           {
-            url:'/MVC_todo/videos/view/'+id_video,
+            url:'/dailyvir/videos/view/'+id_video,
             method: 'POST',
             data:{
               delete: 1,
@@ -213,7 +213,7 @@ const validateEmail = (email) => {
             },
             success: function (response){
               if(response)
-                window.location.href = "/MVC_todo/";
+                window.location.href = "/dailyvir/";
             },
             dataType: 'text'
           }
@@ -223,7 +223,7 @@ const validateEmail = (email) => {
         var newEmail = $("#newEmail").val();
         $.ajax(
           {
-            url:'/MVC_todo/users/view',
+            url:'/dailyvir/users/view',
             method: 'POST',
             data:{
               changeEmail: 1,
@@ -236,7 +236,7 @@ const validateEmail = (email) => {
         var newPassword = $("#newPassword").val();
         $.ajax(
           {
-            url:'/MVC_todo/users/view',
+            url:'/dailyvir/users/view',
             method: 'POST',
             data:{
               changePassword: 1,
@@ -248,7 +248,7 @@ const validateEmail = (email) => {
       $("#searchSubmit").on('click', function() {
         var searchText = $("#searchText").val();
         searchText = searchText.replace('%20','&')
-        window.location.href = "/MVC_todo/videos/search/"+searchText;
+        window.location.href = "/dailyvir/videos/search/"+searchText;
       });
   });
   const acc = document.getElementsByClassName("accordion");

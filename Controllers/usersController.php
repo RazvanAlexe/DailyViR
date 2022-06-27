@@ -45,7 +45,7 @@ class usersController extends Controller
                     $newElem->appendChild($newText);
                     $newElem = $xmldoc->createElement("link");
                     $newItem->appendChild($newElem);
-                    $newText = $xmldoc->createTextNode("/MVC_todo");
+                    $newText = $xmldoc->createTextNode("/dailyvir");
                     $newElem->appendChild($newText);
                     $newElem = $xmldoc->createElement("description");
                     $newItem->appendChild($newElem);

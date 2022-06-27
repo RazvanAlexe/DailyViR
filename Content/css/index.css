@@ -34,6 +34,10 @@ input[type=search] {
     margin-bottom: 2vh; /* Bottom margin */
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 }
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    cursor: pointer;
+}
 
 .navBar {
     background-image: linear-gradient(#A258B8, white); /* make the header's background a gradient */
@@ -410,15 +414,33 @@ input[type=search] {
     width:100px;
     height:20px;
 }
+
+.pageContainer{
+    height: 90vh;
+    background-image: linear-gradient(white,#a258b8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background: white;
+    margin-top: 20vh;
+    width: 30vw;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  }
+  
+  #sign{
+    margin-top: 10vh;
+  }
+  #uploadForm{
+    margin-top: 10vh;
+    height: 50vh;
   }
   .center h1{
     text-align: center;
@@ -435,9 +457,8 @@ input[type=search] {
     margin: 30px 0;
   }
   .txt_field input{
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
+    width: 20vw;
+    height: 5vh;
     font-size: 16px;
     border: none;
     background: none;
@@ -860,6 +881,13 @@ input[type=search] {
     transform: translateY(0);
   }
 
+.homepageTitleContainer{
+    background-color:#A258B8;
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
 .homepageVideoContainer{
     position: absolute;
     left: 20vw;
@@ -873,6 +901,15 @@ input[type=search] {
     height: 50%;
 
 }
+
+.homepageVideoDiv{
+    background-color: Black;
+    overflow: hidden;
+    display:inline-block;
+    width: 10vw;
+    height: 10vh;
+}
+
 .videoContainer{
     display: flex;
     flex-direction: column;
@@ -881,6 +918,8 @@ input[type=search] {
 .titleContainer{
     display: flex;
     justify-content: center;
+    height: 10vh;
+    width: 10vw;
 }
 
 .viewBody{
@@ -895,32 +934,127 @@ input[type=search] {
 }
 
 .viewComments{
-    background-color: yellow
+
 }
 
-.viewCommentText{
-    background-color: #2691d9;
-
+.commentContent{
+    color: black;
 }
 
 .commentElement{
     margin-top: 10px; 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .viewTitle{
     display: flex;
     justify-content: center;
 }
-.commentText{
-
+#commentText{
+    height: 10vh;
 }
 
-.commentDelete{
-
+#commentPost{
+    width: 10vw;
+    margin-top: 2vh;
 }
 
-.viewText{
-
+.viewDesc{
+    width: 60vw;
 }
+
+.commentForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+}
+
+.searchContent{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+.searchvideo-title{
+    font-size: 30px;
+}
+
+.description{
+    color: black;
+    font-size: 15px;
+}
+
+.searchVideoElement{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+    margin-left: 2vw;
+}
+
+#studioButton{
+    margin-left: 2vw;
+}
+
+.trendingElement{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.trendingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepageTitle{
+    color: white;
+    font-size: 70px;
+}
+
+  
+  .box {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+  }
+  
+  .box select {
+    background-color: #A258B8;
+    color: white;
+    padding: 12px;
+    width: 20vw;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option {
+    padding: 30px;
+  }

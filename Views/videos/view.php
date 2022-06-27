@@ -16,7 +16,7 @@
     echo "</div>";
     echo "<div class='viewButtons'>";
     echo "<div>";
-    echo "<a href='/MVC_todo/videos/stats/".$video['id_video']."'><button class='buttonVir'>Statistics</button></a>";
+    echo "<a href='/dailyvir/videos/stats/".$video['id_video']."'><button class='buttonVir'>Statistics</button></a>";
     echo "</div>";
     if($fav == false)
     {
@@ -38,34 +38,32 @@
         }
     }
     echo "</div>";
-    echo "<div class ='viewText'>";
     echo "<div class ='viewTitle'>";
     echo "<h1>".$video['title']."</h1>";
     echo "</div>";
-    echo "<div>";
-    echo "<label> Views: ".$video['views']."</label>";
-    echo "</div>";
-    echo "<div>";
-    echo "<label> Uploaded by ".$video['id_user']." on " .$video['upload_date']."</label>";
-    echo "</div>";
-    echo "<div>";
+    echo "<div class ='viewDesc'>";
     echo "<label>".$video['description']."</label>";
     echo "</div>";
-    echo "</div>";
-    echo "<div class = 'viewComments'>";
     echo "<div>";
     echo "<h2> Comments: </h2>";
     echo "</div>";
-    echo "<div>";
-    echo "<form>";
-    echo "<button class='buttonVir' id = 'commentPost'>Post new comment</button>";
+    echo "<div class = 'viewComments'>";
+    echo "<div  class='commentForm'>";
     echo "<input type='text' id='commentText' placeholder='Post a comment...'>";
-    echo "</form>";
+    echo "<button class='buttonVir' id = 'commentPost'>Post new comment</button>";
     echo "</div>";
     echo "<div class = 'viewCommentText'>";
     foreach($comments as $comment)
     {
         echo "<div class='commentElement'>";
+        echo "<div class='commentText'>";
+        echo "<div>";
+        echo "<label>".$comment['id_user']." at ".$comment['post_time']." says:</label>";
+        echo "</div>";
+        echo "<div>";
+        echo "<label class='commentContent'>".$comment['comment']."</label>";
+        echo "</div>";
+        echo "</div>";
         echo "<div class='commentDelete'>";
         if(isset($_SESSION['logged']))
         {
@@ -75,14 +73,6 @@
                 echo "</div>";      
             }
         }
-        echo "</div>";
-        echo "<div class='commentText'>";
-        echo "<div>";
-        echo "<label>".$comment['id_user']." at ".$comment['post_time']." says:</label>";
-        echo "</div>";
-        echo "<div>";
-        echo "<label>".$comment['comment']."</label>";
-        echo "</div>";
         echo "</div>"; 
         echo "</div>";
 

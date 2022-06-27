@@ -7,7 +7,7 @@ class Router
     {
         $url = trim($url);
 
-        if ($url == "/MVC_todo/")
+        if ($url == "/dailyvir/")
         {
             if(!isset($_SESSION['logged']))
             {

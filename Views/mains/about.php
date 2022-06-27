@@ -1,5 +1,5 @@
 <div>
-    <img src="/MVC_todo/Content/image/background_purp.png" alt="">
+    <img src="/dailyvir/Content/image/background_purp.png" alt="">
 </div>
 <div>
     IT'S YOUR TIME
@@ -16,11 +16,11 @@
     share and build community through our stories.
 </div>
 <div>
-    <a href="/MVC_todo/mains/development">Development document</a>
+    <a href="/dailyvir/mains/development">Development document</a>
 </div>
 <div>
-    <a href="/MVC_todo/mains/howto">"How to" document</a>
+    <a href="/dailyvir/mains/howto">"How to" document</a>
 </div>
 <div>
-    <a href="/MVC_todo/mains/concept">Concept document</a>
+    <a href="/dailyvir/mains/concept">Concept document</a>
 </div>

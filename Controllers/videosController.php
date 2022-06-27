@@ -19,7 +19,7 @@ class videosController extends Controller
             $newElem->appendChild($newText);
             $newElem = $xmldoc->createElement("link");
             $newItem->appendChild($newElem);
-            $newText = $xmldoc->createTextNode("/MVC_todo/videos/view/".$_POST['urlPHP']);
+            $newText = $xmldoc->createTextNode("/dailyvir/videos/view/".$_POST['urlPHP']);
             $newElem->appendChild($newText);
             $newElem = $xmldoc->createElement("description");
             $newItem->appendChild($newElem);
@@ -38,14 +38,7 @@ class videosController extends Controller
 
         $videos = new Video();
 
-        if(strstr($search,"%20")){
-            $searchTerms = explode("%20",$search);
-            foreach($searchTerms as $term){
-                array_push($d['videos'],$videos->searchVideos($term));
-            }
-        }
-        else
-            $d['videos'] = $videos->searchVideos($search);
+        $d['videos'] = $videos->searchVideos($search);
         $this->set($d);
         $this->render("search");
     }
@@ -99,7 +92,7 @@ class videosController extends Controller
             $newElem->appendChild($newText);
             $newElem = $xmldoc->createElement("link");
             $newItem->appendChild($newElem);
-            $newText = $xmldoc->createTextNode("/MVC_todo/videos/view/".$viewvideo);
+            $newText = $xmldoc->createTextNode("/dailyvir/videos/view/".$viewvideo);
             $newElem->appendChild($newText);
             $newElem = $xmldoc->createElement("description");
             $newItem->appendChild($newElem);
@@ -117,7 +110,7 @@ class videosController extends Controller
         {   
             $videos->deleteComments($viewvideo);
             $videos->deleteVideo($viewvideo);
-            header("Location: /MVC_todo/");
+            header("Location: /dailyvir/");
         }
         else
         {
