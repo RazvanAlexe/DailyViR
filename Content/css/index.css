@@ -63,15 +63,15 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .navBar__left {
-    width: 50%;
+    width: 45%;
     height: 100%;
     float: left;
 }
 
 .navBar__logo {
     float: left; /* arrange starting from left, after the last element from left */
-    height: 3.7vh; /* fixed height */
-    width: 5vh; /* fixed width*/
+    height: 3.5vh; /* fixed height */
+    width: 5%; /* fixed width*/
     padding: 2.5vh 0 0 5vh; /* some padding*/
 }
 
@@ -80,10 +80,10 @@ input[type="search"]::-webkit-search-cancel-button {
     color: white; /* color of the text */
     font-family: "Tajawal", sans-serif; /* font */
     font-weight: 800;
-    font-size: 5vh;
+    font-size: 2.5vw;
     padding: 0.7vh 0 0 0.6vh;
     text-decoration: none; /* text is originally a link. Used to not underline */
-    width: 30%;
+    width: 20%;
     height: 90%;
 }
 
@@ -110,6 +110,7 @@ input[type="search"]::-webkit-search-cancel-button {
     height: 4.4vh;
     width: 3.9vh;
     padding: 2.2vh 0.3vh 0.7vh 0.8vh;
+    margin-left: 1vw;
 }
 
 .accordion__catIcon:hover {
@@ -161,7 +162,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* column that floats to the right in the navBar*/
 .navBar__right {
-    width: 50%; /* takes 30% of the navBar's width */
+    width: 55%; /* takes 30% of the navBar's width */
     height: 100%;
     float: right;
 }
@@ -192,6 +193,7 @@ input[type="search"]::-webkit-search-cancel-button {
     height: 37%;
     margin-top: 1.3vh;
     margin-right: 1.2vh;
+    margin-left: 2.2vh;
     padding-top: 0.8vh;
 }
 
@@ -205,6 +207,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .accordion__notifications {
     display: none;
     margin-top: 8.4vh;
+    margin-left: 5.4vh;
     box-shadow: 0.8vh 0.8vh 0.8vh rgb(57 18 78 / 31%);
     border-radius: 1.7vh;
     background-color: white;
@@ -251,7 +254,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .accordion__notificationsLeft {
     width: 80%; /* of the underVideo */
-    display: grid;
+    display: flex;
+    flex-direction: column;
     height: 25%;
     float: left;
 }
@@ -261,6 +265,7 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative;
     height: 5vh;
     width: 5vh;
+    font-size: 2vw;
     margin-top: 2.5vh;
     overflow: hidden;
     border-radius: 100%;
@@ -286,14 +291,14 @@ input[type="search"]::-webkit-search-cancel-button {
     float: right;
     vertical-align: middle;
     text-align: center;
-    height: 45%;
+    height: 55%;
     font-family: "Tajawal", sans-serif;
     font-weight: 800;
     font-size: 2.2vh;
     color: #f2f2f2;
     text-decoration: none;
     background-color: #A258B8;
-    padding: 1% 2% 1% 2%;
+    padding: 1% 2% 2% 2%;
     box-sizing: border-box;
     border-radius: 0.8vh;
     align-content: center;
@@ -448,7 +453,7 @@ input[type="search"]::-webkit-search-cancel-button {
     flex-direction: column;
     background: white;
     margin-top: 20vh;
-    width: 30vw;
+    width: 40vw;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
   }
@@ -458,7 +463,7 @@ input[type="search"]::-webkit-search-cancel-button {
   }
   #uploadForm{
     margin-top: 10vh;
-    height: 50vh;
+    height: auto;
   }
   .center h1{
     text-align: center;
@@ -473,14 +478,16 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin:  0;
+    margin-bottom: 2vh;
   }
   .txt_field input{
-    width: 20vw;
+    width: 30vw;
     height: 5vh;
     font-size: 16px;
     border: none;
     background: none;
     outline: none;
+
   }
   .txt_field label{
     position: absolute;
@@ -1085,6 +1092,7 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 
   .usercontain{
+    
     display: flex;
     flex-direction: column;
   }
@@ -1096,4 +1104,23 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .userText{
     font-size: 20vw;
+}
+
+#aboutlogin{
+    margin-left: 30vw;
+    margin-top: 2vh;
+}
+
+.aboutimage{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imageContainer{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    height: 70%;
 }

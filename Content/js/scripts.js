@@ -247,8 +247,9 @@ const validateEmail = (email) => {
       });
       $("#searchSubmit").on('click', function() {
         var searchText = $("#searchText").val();
-        searchText = searchText.replace('%20','&')
-        window.location.href = "/dailyvir/videos/search/"+searchText;
+        var result = searchText.replace(/ /g,"777777");
+        console.log(result);
+        window.location.href = "/dailyvir/videos/search/"+result;
       });
   });
   const acc = document.getElementsByClassName("accordion");

@@ -52,6 +52,11 @@
 
                 <a href="/dailyvir/mains/about"><img src="http://localhost/dailyvir/Content/image/about.svg" class="navBar__aboutIcon" alt="The src doesn't exist"></a>
 
+
+                <a href="/dailyvir/users/studio/"><img src="http://localhost/dailyvir/Content/image/upload_video.png" class="navBar__uploadIcon " alt="The src doesn't exist"></a>
+
+                <a href="/dailyvir/videos/trending/" class="navBar__trendingBtn">Trending</a>
+                
                 <span class="accordion">
                     <a><img src="http://localhost/dailyvir/Content/image/notifications.svg" class="accordion__notificationsIcon" alt="The src doesn't exist"></a>
                 </span>
@@ -72,29 +77,27 @@
                     ?>
                 </div>
 
-                <a href="/dailyvir/users/studio/"><img src="http://localhost/dailyvir/Content/image/upload_video.png" class="navBar__uploadIcon " alt="The src doesn't exist"></a>
-
-                <a href="/dailyvir/videos/trending/" class="navBar__trendingBtn">Trending</a>
-                
                 <?php
                     }
                     else
                     {
                 ?>
-                    <a href="/dailyvir/users/login"><button class="buttonVir">Log in</button></a>
+
+                    <a href="/dailyvir/users/login"><button class="buttonVir" id="aboutlogin">Log in</button></a>
 
                     <a href="/dailyvir/users/signup"><button class="buttonVir">Sign up</button></a>
+
                 <?php
                     }
                 }
                     else
                     {
                 ?>
-
-                    <a href="/dailyvir/users/login"><button class="buttonVir">Log in</button></a>
+                <div class="buttonsContainer">
+                    <a href="/dailyvir/users/login"><button class="buttonVir" id="aboutlogin">Log in</button></a>
 
                     <a href="/dailyvir/users/signup"><button class="buttonVir">Sign up</button></a>
-
+                    <div>
                 <?php
                     }
                 ?>

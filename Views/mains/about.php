@@ -1,6 +1,6 @@
 <div class="aboutPage">
-    <div>
-        <img src="/dailyvir/Content/image/background_purp.png" alt="">
+    <div class="imageContainer">
+        <img class ="aboutimage" src="/dailyvir/Content/image/background_purp.png" alt="">
     </div>
     <div>
         <label style="color: black;">IT'S YOUR TIME</label>

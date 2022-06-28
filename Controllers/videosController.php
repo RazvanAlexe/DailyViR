@@ -37,8 +37,13 @@ class videosController extends Controller
         require(ROOT . 'Models/Video.php');
 
         $videos = new Video();
-
-        $d['videos'] = $videos->searchVideos($search);
+        $list = explode("777777",$search);
+        $biglist = array();
+        foreach($list as $l){
+            $result = $videos->searchVideos($l);
+            $biglist += $result;
+        }
+        $d['videos'] = $biglist;
         $this->set($d);
         $this->render("search");
     }

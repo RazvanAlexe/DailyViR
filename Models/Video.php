@@ -10,7 +10,7 @@ class Video extends Model
     }
 
     function trendingVideos(){
-        $sql = "SELECT * FROM video ORDER BY views DESC LIMIT 3";
+        $sql = "SELECT * FROM video WHERE datediff(CURRENT_DATE, upload_date) < 30 ORDER BY views DESC LIMIT 3";
         $req = Database::getBdd()->prepare($sql);
         $req->execute();
         return $req->fetchAll();
